@@ -1,4 +1,4 @@
-# Contributing to the template-ansible
+# Contributing to the terraform init vault
 
 Testers welcome!
 
