@@ -1,7 +1,5 @@
 # terraform-init-vault
 
-:construction: ***DEVELOPING*** :construction:
-
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=flat&logo=terraform&logoColor=white)
 ![GitHub License](https://img.shields.io/github/license/ironwolphern/terraform-init-vault)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/ironwolphern/terraform-init-vault)
