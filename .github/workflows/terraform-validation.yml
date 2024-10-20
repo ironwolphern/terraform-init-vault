@@ -20,8 +20,8 @@ jobs:
       # Check formatting and style of Terraform files
       - name: Terraform fmt
         id: fmt
-        run: terraform fmt -check
-        continue-on-error: true
+        run: terraform fmt -check -recursive
+        # continue-on-error: true
 
       # Initialize Terraform
       - name: Terraform Init
