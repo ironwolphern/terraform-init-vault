@@ -1,4 +1,4 @@
-# Contributing to the terraform init vault
+# Contributing to the {{repository.name}}
 
 Testers welcome!
 
