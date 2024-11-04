@@ -65,12 +65,12 @@ resource "vault_approle_auth_backend_role_secret_id" "kestra" {
 }
 
 output "role_id" {
-  value     = vault_approle_auth_backend_role_id.kestra.role_id
+  value     = vault_approle_auth_backend_role.kestra.role_id
   sensitive = false
 }
 
 output "secret_id" {
-  value     = vault_approle_auth_backend_secret_id.kestra.secret_id
+  value     = vault_approle_auth_backend_role_secret_id.kestra.secret_id
   sensitive = true
 }
 
