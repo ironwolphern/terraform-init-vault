@@ -59,12 +59,7 @@ resource "vault_approle_auth_backend_role" "kestra" {
   token_bound_cidrs     = var.ip_whitelist
 }
 
-resource "vault_approle_auth_backend_role_id" "kestra" {
-  backend   = vault_auth_backend.approle.path
-  role_name = vault_approle_auth_backend_role.kestra.role_name
-}
-
-resource "vault_approle_auth_backend_secret_id" "kestra" {
+resource "vault_approle_auth_backend_role_secret_id" "kestra" {
   backend   = vault_auth_backend.approle.path
   role_name = vault_approle_auth_backend_role.kestra.role_name
 }
