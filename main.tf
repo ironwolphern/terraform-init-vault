@@ -44,19 +44,19 @@ resource "vault_auth_backend" "approle" {
 }
 
 resource "vault_approle_auth_backend_role" "kestra" {
-  backend         = vault_auth_backend.approle.path
-  role_name       = "kestra-role"
-  token_policies  = [vault_policy.kestra.name]
+  backend        = vault_auth_backend.approle.path
+  role_name      = "kestra-role"
+  token_policies = [vault_policy.kestra.name]
 
   # AppRole security configuration
-  token_ttl               = "1h"
-  token_max_ttl          = "4h"
-  token_num_uses         = 0
-  secret_id_ttl          = "10m"
-  secret_id_num_uses     = 0
-  bind_secret_id         = true
-  secret_id_bound_cidrs  = var.ip_whitelist
-  token_bound_cidrs      = var.ip_whitelist
+  token_ttl             = 3600
+  token_max_ttl         = 14400
+  token_num_uses        = 0
+  secret_id_ttl         = 600
+  secret_id_num_uses    = 0
+  bind_secret_id        = true
+  secret_id_bound_cidrs = var.ip_whitelist
+  token_bound_cidrs     = var.ip_whitelist
 }
 
 resource "vault_approle_auth_backend_role_id" "kestra" {
