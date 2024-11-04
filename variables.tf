@@ -17,6 +17,23 @@ variable "vault_token" {
   }
 }
 
+variable "admin_password" {
+  type        = string
+  description = "Admin password"
+  nullable    = false
+  sensitive   = true
+  validation {
+    condition     = length(var.admin_password) > 0
+    error_message = "Admin password must not be empty"
+  }
+}
+
+variable "ip_whitelist" {
+  type        = list(string)
+  description = "IP whitelist"
+  nullable    = true
+}
+
 variable "ssh_keys" {
   type        = map(string)
   description = "SSH keys (Name and public key)"
