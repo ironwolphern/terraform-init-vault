@@ -28,6 +28,17 @@ variable "admin_password" {
   }
 }
 
+variable "devops_password" {
+  type        = string
+  description = "Devops password"
+  nullable    = false
+  sensitive   = true
+  validation {
+    condition     = length(var.devops_password) > 0
+    error_message = "Admin password must not be empty"
+  }
+}
+
 variable "ip_whitelist" {
   type        = list(string)
   description = "IP whitelist"
@@ -40,15 +51,15 @@ variable "ssh_keys" {
   nullable    = true
 }
 
-variable "auth_keys_user_password" {
+variable "pve_auth_keys_userpass" {
   type        = map(string)
-  description = "Authentication keys (Username and password)"
+  description = "Proxmox Authentication userpass (Username and password)"
   nullable    = true
 }
 
-variable "auth_keys_user_api_token" {
+variable "pve_auth_keys_api" {
   type        = map(string)
-  description = "Authentication keys (Username and API token)"
+  description = "Proxmox Authentication api (Username and API token)"
   nullable    = true
 }
 
