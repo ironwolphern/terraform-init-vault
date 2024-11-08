@@ -19,6 +19,8 @@ This script is meant for use with Terraform 0.13+ and tested using Terraform 1.9
 
 1. Upload data to Hashicorp Vault.
 2. Inicialize Hashicorp Vault with data.
+3. Create users and policies in Hashicorp Vault.
+4. Create AppRoles and policies in Hashicorp Vault.
 
 ## Usage
 
