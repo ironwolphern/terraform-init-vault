@@ -62,13 +62,3 @@ variable "pve_auth_keys_api" {
   description = "Proxmox Authentication api (Username and API token)"
   nullable    = true
 }
-
-# variable "vault_login_approle_role_id" {
-#   type        = string
-#   description = "Vault approle role id"
-# }
-#
-# variable "vault_login_approle_secret_id" {
-#   type        = string
-#   description = "Vault approle secret id"
-# }

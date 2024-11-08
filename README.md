@@ -47,11 +47,24 @@ terraform apply plan_output.tfplan -auto-approve
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| ssh | resource |
-| pve_auth_user_password | resource |
-| pve_auth_user_api_token | resource |
+| Name | Type | Type Resource |
+|------|------|---------------|
+| admin | resource | vault_policy |
+| devops | resource | vault_policy |
+| userpass | resource | vault_auth_backend |
+| admin_user | resource | vault_generic_endpoint |
+| devops_user | resource | vault_generic_endpoint |
+| kestra-ro | resource | vault_policy |
+| kestra-rw | resource | vault_policy |
+| approle | resource | vault_auth_backend |
+| kestra-ro | resource | vault_approle_auth_backend_role |
+| kestra-ro | resource | vault_approle_auth_backend_role_secret_id |
+| kestra-rw | resource | vault_approle_auth_backend_role |
+| kestra-rw | resource | vault_approle_auth_backend_role_secret_id |
+| laboratory | resource | vault_mount |
+| ssh | resource | vault_kv_secret_v2 |
+| pve_auth_user_password | resource | vault_kv_secret_v2 |
+| pve_auth_user_api_token | resource | vault_kv_secret_v2 |
 
 ## Inputs
 
@@ -59,10 +72,25 @@ terraform apply plan_output.tfplan -auto-approve
 |------|-------------|------|---------|:--------:|
 | vault_addr | URL of hashicorp Vault Service. | `string` | `` | yes |
 | vault_token | Token of user. | `string` | `` | yes |
+| admin_password | Password for admin user. | `string` | `` | yes |
+| devops_password | Password for devops user. | `string` | `` | yes |
+| ip_whitelist | List of IP addresses to whitelist for approles. | `list(string)` | `[]` | no |
 | ssh_keys | Map of SSH keys (Name and public key). | `map(string)` | `` | no |
-| auth_keys_user_password | Map of Authentication keys (Username and password). | `map(string)` | `` | no |
-| auth_keys_user_api_token | Map of Authentication keys (Username and API token). | `map(string)` | `` | no |
+| pve_auth_keys_userpass | Map of Proxmox Authentication userpass (Username and password). | `map(string)` | `` | no |
+| pve_auth_keys_api | Map of Proxmox Authentication api (Username and API token). | `map(string)` | `` | no |
 
+## Outputs
+
+| Name | Description | Sensitive |
+|------|-------------|-----------|
+| admin_username | Username for admin user. | false |
+| admin_policy_name | Policy name for admin user. | false |
+| devops_username | Username for devops user. | false |
+| devops_policy_name | Policy name for devops user. | false |
+| role_id_ro | Role ID for kestra-ro approle. | true |
+| secret_id_ro | Secret ID for kestra-ro approle. | true |
+| role_id_rw | Role ID for kestra-rw approle. | true |
+| secret_id_rw | Secret ID for kestra-rw approle. | true |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
