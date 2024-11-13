@@ -56,13 +56,13 @@ terraform apply plan_output.tfplan -auto-approve
 | userpass | resource | vault_auth_backend |
 | admin_user | resource | vault_generic_endpoint |
 | devops_user | resource | vault_generic_endpoint |
-| kestra-ro | resource | vault_policy |
-| kestra-rw | resource | vault_policy |
+| cicd-ro | resource | vault_policy |
+| cicd-rw | resource | vault_policy |
 | approle | resource | vault_auth_backend |
-| kestra-ro | resource | vault_approle_auth_backend_role |
-| kestra-ro | resource | vault_approle_auth_backend_role_secret_id |
-| kestra-rw | resource | vault_approle_auth_backend_role |
-| kestra-rw | resource | vault_approle_auth_backend_role_secret_id |
+| cicd-ro | resource | vault_approle_auth_backend_role |
+| cicd-ro | resource | vault_approle_auth_backend_role_secret_id |
+| cicd-rw | resource | vault_approle_auth_backend_role |
+| cicd-rw | resource | vault_approle_auth_backend_role_secret_id |
 | laboratory | resource | vault_mount |
 | ssh | resource | vault_kv_secret_v2 |
 | pve_auth_user_password | resource | vault_kv_secret_v2 |
@@ -89,10 +89,10 @@ terraform apply plan_output.tfplan -auto-approve
 | admin_policy_name | Policy name for admin user. | false |
 | devops_username | Username for devops user. | false |
 | devops_policy_name | Policy name for devops user. | false |
-| role_id_ro | Role ID for kestra-ro approle. | true |
-| secret_id_ro | Secret ID for kestra-ro approle. | true |
-| role_id_rw | Role ID for kestra-rw approle. | true |
-| secret_id_rw | Secret ID for kestra-rw approle. | true |
+| role_id_ro | Role ID for cicd-ro approle. | true |
+| secret_id_ro | Secret ID for cicd-ro approle. | true |
+| role_id_rw | Role ID for cicd-rw approle. | true |
+| secret_id_rw | Secret ID for cicd-rw approle. | true |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

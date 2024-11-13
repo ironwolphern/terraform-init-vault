@@ -7,6 +7,6 @@ path "laboratory/metadata/*" {
 }
 
 # Manage all AppRole Secrets IDs
-path "auth/approle/role/kestra-ro/secret-id" {
+path "auth/approle/role/cicd-ro/secret-id" {
   capabilities = ["create", "read", "update", "list"]
 }
