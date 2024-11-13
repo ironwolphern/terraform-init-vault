@@ -110,8 +110,8 @@ resource "vault_mount" "laboratory" {
 }
 
 resource "vault_kv_secret_v2" "ssh" {
-  depends_on = [vault_mount.laboratory]
-  count      = (var.ssh_keys != null) ? 1 : 0
+  depends_on          = [vault_mount.laboratory]
+  count               = (var.ssh_keys != null) ? 1 : 0
   mount               = vault_mount.laboratory.path
   name                = "ssh"
   cas                 = 1
@@ -127,8 +127,8 @@ resource "vault_kv_secret_v2" "ssh" {
 }
 
 resource "vault_kv_secret_v2" "pve_auth_user_password" {
-  depends_on = [vault_mount.laboratory]
-  count      = (var.pve_auth_keys_userpass != null) ? 1 : 0
+  depends_on          = [vault_mount.laboratory]
+  count               = (var.pve_auth_keys_userpass != null) ? 1 : 0
   mount               = vault_mount.laboratory.path
   name                = "proxmox/auth/userpass"
   cas                 = 1
@@ -144,8 +144,8 @@ resource "vault_kv_secret_v2" "pve_auth_user_password" {
 }
 
 resource "vault_kv_secret_v2" "pve_auth_user_api_token" {
-  depends_on = [vault_mount.laboratory]
-  count      = (var.pve_auth_keys_api != null) ? 1 : 0
+  depends_on          = [vault_mount.laboratory]
+  count               = (var.pve_auth_keys_api != null) ? 1 : 0
   mount               = vault_mount.laboratory.path
   name                = "proxmox/auth/api"
   cas                 = 1
