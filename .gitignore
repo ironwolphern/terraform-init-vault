@@ -39,19 +39,9 @@ terraform.rc
 
 *.log
 *.log.*
-*.iso
-*.box
-packer_cache
-*.retry
-.vagrant
 
 # VSCode
 .vscode
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
 
 # DS_Store
 .DS_Store
@@ -68,5 +58,6 @@ tramp
 .\#*
 *.swp
 *.swo
-rh-creds.env
-travis.env
+
+# Ignore certs directory
+certs/*
